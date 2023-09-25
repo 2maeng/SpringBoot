@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+   PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+   <mapper namespace="com.kim.app.InterfaceBoardDAO">
+      <select id="selectAll" resultType="com.kim.app.BoardDTO">
+        SELECT * FROM BOARD ORDER BY NUM DESC
+      </select>
+      
+      <select id="selectOne" resultType="com.kim.app.BoardDTO">
+        SELECT * FROM BOARD WHERE NUM = #{param1}
+      </select>
+      
+      <insert id="insert">
+		INSERT INTO BOARD (MID, CONTENT) VALUES (#{data1}, #{data2})
+	  </insert>
+	  
+	  <update id="update">
+		UPDATE BOARD SET CONTENT = #{data1} WHERE NUM = #{data2}
+	  </update>
+      
+      <delete id="delete">
+        DELETE FROM BOARD WHERE NUM = #{NUM}
+      </delete>
+
+</mapper>
